@@ -1,0 +1,51 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "admin",
+            "password": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+            "role": "admin",
+            "status": "active",
+            "created_at": "2026-01-01T00:00:00Z",
+            "updated_at": "2026-01-01T00:00:00Z"
+        },
+        {
+            "id": 2,
+            "username": "student",
+            "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+            "role": "student",
+            "status": "active",
+            "created_at": "2026-01-01T00:00:00Z",
+            "updated_at": "2026-01-01T00:00:00Z"
+        },
+        {
+            "id": 3,
+            "username": "teacher",
+            "password": "3a7b5f8e0b4a1c2d6e8f9g0h1i2j3k4l5m6n7o8p9q0r1s2t3u4v5w6x7y8z9",
+            "role": "teacher",
+            "status": "active",
+            "created_at": "2026-01-01T00:00:00Z",
+            "updated_at": "2026-01-01T00:00Z"
+        },
+        {
+            "id": 4,
+            "username": "inactive_user",
+            "password": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9",
+            "role": "student",
+            "status": "inactive",
+            "created_at": "2025-12-01T00:00:00Z",
+            "updated_at": "2025-12-01T00:00:00Z"
+        }
+    ],
+    "info": {
+        "description": "Mock user data for Dao-Yu-101 static phase",
+        "note": "Passwords are SHA-256 hashed for security",
+        "test_credentials": {
+            "admin": "admin123",
+            "student": "student123",
+            "teacher": "teacher123"
+        },
+        "version": "1.0.0",
+        "last_updated": "2026-01-14T14:48:00Z"
+    }
+}
