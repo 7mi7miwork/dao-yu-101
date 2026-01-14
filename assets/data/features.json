@@ -1,0 +1,19 @@
+{
+  "features": [
+    {
+      "id": 1,
+      "title": "Philosophie lernen",
+      "description": "Vertiefen Sie Ihr Verständnis der Dao-Yu Prinzipien durch strukturierte Lernmodule und interaktive Inhalte."
+    },
+    {
+      "id": 2,
+      "title": "Praktische Übungen",
+      "description": "Angeleitete Meditationen, Reflexionen und praktische Anwendungen der Dao-Yu Philosophie im Alltag."
+    },
+    {
+      "id": 3,
+      "title": "Community",
+      "description": "Tauschen Sie sich mit anderen Praktizierenden aus, teilen Sie Erfahrungen und lernen Sie voneinander."
+    }
+  ]
+}
