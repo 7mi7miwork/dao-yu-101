@@ -1,0 +1,10 @@
+/archipelagos
+/islands
+/lessons
+/quizzes
+/tests
+/ai
+/gamification
+/dashboards
+/auth
+/docs
