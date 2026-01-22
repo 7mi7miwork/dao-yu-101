@@ -1,10 +1,11 @@
 # Dependencies
 node_modules/
-*/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Production builds
-.next/
-out/
+# Build output
+docs/
 dist/
 build/
 
@@ -15,11 +16,25 @@ build/
 .env.test.local
 .env.production.local
 
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
 # Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
+logs
+*.log
 
 # Runtime data
 pids
@@ -36,9 +51,6 @@ coverage/
 
 # Dependency directories
 jspm_packages/
-
-# TypeScript cache
-*.tsbuildinfo
 
 # Optional npm cache directory
 .npm
@@ -69,7 +81,7 @@ jspm_packages/
 .vuepress/dist
 
 # Serverless directories
-.serverless/
+.serverless
 
 # FuseBox cache
 .fusebox/
@@ -80,36 +92,16 @@ jspm_packages/
 # TernJS port file
 .tern-port
 
-# Stores VSCode versions used for testing VSCode extensions
-.vscode-test
-
-# Temporary folders
+# Temporary files
 tmp/
 temp/
 
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# User-specific data
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
 
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Database
-*.sqlite
-*.db
-
-# Uploads
-uploads/
-public/uploads/
-
-# Docker
-.dockerignore
+# Build artifacts
+*.tgz
+*.tar.gz

@@ -1,34 +1,17 @@
 {
-  "name": "dao-yu-101-learning-platform",
+  "name": "dao-yu-learning-platform",
   "version": "1.0.0",
-  "description": "Minecraft-inspired learning platform with Windsurf IDE integration",
-  "main": "index.js",
+  "description": "Modular learning platform with Minecraft and programming themes",
+  "main": "src/index.html",
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
-    "dev:frontend": "cd frontend && npm run dev",
-    "dev:backend": "cd backend && npm run dev",
-    "build": "npm run build:frontend && npm run build:backend",
-    "build:frontend": "cd frontend && npm run build",
-    "build:backend": "cd backend && npm run build",
-    "start": "cd backend && npm start",
-    "lint": "npm run lint:frontend && npm run lint:backend",
-    "lint:frontend": "cd frontend && npm run lint",
-    "lint:backend": "cd backend && npm run lint",
-    "test": "npm run test:frontend && npm run test:backend",
-    "test:frontend": "cd frontend && npm test",
-    "test:backend": "cd backend && npm test"
+    "dev": "npx serve src -l 3000",
+    "build": "node build.js",
+    "deploy": "npm run build && git add docs/ && git commit -m 'Deploy to GitHub Pages' && git push origin main"
   },
-  "keywords": [
-    "learning-platform",
-    "minecraft",
-    "education",
-    "windsurf",
-    "nextjs",
-    "nodejs"
-  ],
-  "author": "Dao Yu 101 Team",
+  "keywords": ["learning", "platform", "minecraft", "education", "static"],
+  "author": "Dao Yu Team",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "serve": "^14.2.1"
   }
 }

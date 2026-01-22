@@ -1,270 +1,326 @@
-# Dao-Yu-101
-**A Modular Island-Based Self-Learning Platform for Joyful, Independent Education**
+# Dao Yu Learning Platform
 
----
+A modular, scalable learning platform built as a static website that can be deployed directly to GitHub Pages. Features Minecraft-themed and programming language themes with comprehensive gamification and internationalization support.
 
-## 📘 Project Overview
+## 🚀 Features
 
-**Dao-Yu-101** is a **hybrid online learning platform** designed for **schools and individual learners**, blending:
-- Structured, sequential learning
-- Human supervision
-- Strong anti-cheat mechanisms
-- Gamification
-- AI-assisted practice
+### 🎮 **Minecraft Themes**
+- **Overworld Theme**: Classic Minecraft world with day/night modes
+- **Nether Theme**: Fiery underworld with lava effects
+- **End Theme**: Mysterious dimension with starfield effects
 
-The platform uses an **archipelago metaphor**, transforming learning into a guided journey rather than a checklist.
+### 💻 **Programming Language Themes**
+- **Python Theme**: Clean, professional Python-inspired design
+- **JavaScript Theme**: Modern web development aesthetic
+- **Rust Theme**: Systems programming with safety-focused design
 
-> **Vision**
-> A modular self-learning platform focused on **joyful, independent learning**—structured, human-verified, and resistant to shortcuts.
+### 📚 **Course Structure (Archipel System)**
+- **Archipelago (Subject)** → **Island (Topic)** → **15 Lessons**
+- Progressive difficulty levels (Beginner → Intermediate → Advanced)
+- Interactive exercises and quizzes
+- Progress tracking and completion certificates
 
----
+### 🎯 **Gamification System**
+- Points, levels, and experience tracking
+- Daily streaks and achievements
+- Badge collection system
+- Global leaderboard
+- Course ownership and progress rewards
 
-## 🗺️ Core Learning Concept: Archipelago Model
+### 🛒 **Course Shop**
+- Individual course purchases
+- Bundle deals with savings
+- Promotional discounts
+- Free and premium content
 
-### Archipelagos
-- Represent **subjects** (e.g., Coding, Logic, Design, STEM)
-- Independently configurable
-- Custom progression rules per archipelago
+### 🌍 **Internationalization**
+- English and German translations (easily extensible)
+- Dynamic language switching
+- Localized content and UI elements
 
-### Islands
-- Topic-focused learning areas
-- Contain multiple lessons
-- Locked until prerequisites are met
-- Visually represented on a map
+### 📱 **Responsive Design**
+- Mobile-first approach
+- Tablet and desktop optimizations
+- Touch-friendly interfaces
 
-### Lessons
-- Completed **sequentially**
-- Cannot be skipped without validation
-- Progress verified at multiple checkpoints
+## 📁 Project Structure
 
-**Learning is a journey through islands, not a list of tasks.**
+```
+dao-yu-101/
+├── docs/                    # Build output for GitHub Pages
+├── src/                     # Source files
+│   ├── css/                # Stylesheets
+│   │   └── main.css        # Main styles
+│   ├── js/                 # JavaScript modules
+│   │   ├── app.js          # Main application controller
+│   │   ├── i18n.js         # Internationalization system
+│   │   ├── theme-manager.js # Theme management
+│   │   ├── gamification.js # Gamification system
+│   │   ├── courses.js      # Course management
+│   │   ├── shop.js         # Shop system
+│   │   ├── leaderboard.js  # Leaderboard system
+│   │   └── profile.js      # User profile system
+│   ├── themes/             # Theme stylesheets
+│   │   ├── minecraft-overworld.css
+│   │   ├── minecraft-nether.css
+│   │   ├── minecraft-end.css
+│   │   ├── programming-python.css
+│   │   ├── programming-javascript.css
+│   │   └── programming-rust.css
+│   ├── courses/            # Course content (Archipel structure)
+│   ├── shop/               # Shop-related content
+│   ├── gamification/       # Gamification assets
+│   ├── layouts/            # Layout templates
+│   └── index.html          # Main HTML file
+├── i18n/                   # Translation files
+│   ├── en.json            # English translations
+│   └── de.json            # German translations
+├── public/                 # Static assets
+├── .gitignore              # Git ignore file
+├── 404.html               # Custom 404 page
+├── build.js               # Build script
+├── package.json           # Node.js dependencies
+└── README.md              # This file
+```
 
----
+## 🛠️ Local Development
 
-## 🎯 Target Audience
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-- **Primary:** Kids (6–10), Teens (11–16)
-- **Secondary:** Young adults
+### Setup Instructions
 
-**Usage Contexts:**
-- Schools (class-based, supervised)
-- Individuals (self-learning at home)
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd dao-yu-101
+   ```
 
----
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## 🧠 Learning Philosophy
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+   
+   The application will be available at `http://localhost:3000`
 
-Dao-Yu-101 is built around **self-guided learning with human oversight**.
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+   
+   This will copy all files from `src/` to `docs/` for GitHub Pages deployment.
 
-### Core Principles
-- Mostly self-guided
-- Teachers as mentors & facilitators
-- Learning by doing
-- Gamification & project-based learning
-- No pressure, no grades
-- Progress-based, not time-based
+## 🚀 GitHub Pages Deployment
 
-### Progression Rules
-- Linear learning paths
-- Beginner → Advanced scaling
-- Skipping **not allowed** (except via level tests)
-- Skill trees & levels define mastery
-- Certificates awarded on completion
+### Automatic Deployment
 
----
+1. **Push to GitHub**
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push origin main
+   ```
 
-## 📚 Learning Domains (Initial)
+2. **Enable GitHub Pages**
+   - Go to your repository settings
+   - Scroll to "GitHub Pages" section
+   - Under "Source", select "Deploy from a branch"
+   - Choose "main" branch and "/docs" folder
+   - Save settings
 
-### Coding (Primary Focus)
-- **Minecraft Education**
-  - MakeCode Block Coding
-  - MakeCode Python
-  - MakeCode JavaScript
-- Transition to **Visual Studio Code** for advanced development
+3. **Deploy using npm script** (optional)
+   ```bash
+   npm run deploy
+   ```
+   This will build and commit changes to deploy to GitHub Pages.
 
-### Additional Domains
-- Logic & problem-solving
-- Design
-- Mixed STEM projects
+### Manual Deployment
 
----
+1. **Build the project**
+   ```bash
+   npm run build
+   ```
 
-## 🧩 Lesson Structure
+2. **Push to GitHub**
+   ```bash
+   git add docs/
+   git commit -m "Deploy to GitHub Pages"
+   git push origin main
+   ```
+
+Your site will be available at `https://<username>.github.io/<repository-name>/`
+
+## 🎨 Theme System
+
+The platform supports dynamic theme switching between Minecraft and programming language themes:
+
+### Minecraft Themes
+- **Overworld**: Green and brown palette with grass and wood textures
+- **Nether**: Red and orange with lava effects and fire animations
+- **End**: Purple and black with starfield and portal effects
+
+### Programming Themes
+- **Python**: Blue and yellow with code syntax highlighting
+- **JavaScript**: Yellow and black with modern web dev aesthetics
+- **Rust**: Orange and black with systems programming focus
+
+### Day/Night Mode
+All themes support day/night mode switching for better user experience.
+
+## 🎮 Gamification Features
+
+### Points System
+- **Lesson Completion**: 20 points
+- **Course Purchase**: 30 points
+- **Daily Login**: 5 points
+- **Achievements**: Variable points (10-200)
+
+### Achievements
+- First Steps (Complete first lesson)
+- Week Warrior (7-day streak)
+- Rising Star (Reach level 5)
+- Course Collector (Own 5 courses)
+- Point Master (Earn 1000 points)
+
+### Badges
+- Beginner (Level 1)
+- Learner (Level 3)
+- Expert (Level 5)
+- Master (Level 10)
+- Legend (Level 20)
+
+## 🌍 Adding New Languages
+
+1. **Create translation file**
+   ```bash
+   cp i18n/en.json i18n/fr.json
+   ```
+
+2. **Edit the new translation file**
+   ```json
+   {
+     "common": {
+       "loading": "Chargement...",
+       "error": "Erreur",
+       // ... translate all strings
+     }
+   }
+   ```
+
+3. **Update language selector**
+   Add the new language option in `src/index.html`:
+   ```html
+   <option value="fr">Français</option>
+   ```
+
+4. **Update i18n.js** to load the new language
+
+## 🎯 Course Structure
+
+Courses follow the Archipel system:
+- **Archipelago (Subject)**: Main subject area (e.g., Programming Basics)
+- **Island (Topic)**: Specific topics within the subject (e.g., Variables)
+- **Lessons**: 15 lessons per topic with progressive difficulty
 
 Each lesson includes:
-1. Explainer video
-2. Written explanation
-3. Interactive quizzes
-4. Mandatory lesson test
-5. Dual-password validation
+- Learning objectives
+- Key concepts
+- Practical examples
+- Exercises (quiz, coding, challenge)
+- Completion rewards
 
-**Supported Quiz & Task Types:**
-- Multiple choice
-- Input-based validation
-- Logic questions
-- AI-generated practice tasks
+## 🔧 Customization
 
----
+### Adding New Themes
 
-## 🔐 Anti-Cheat Progression System
+1. **Create theme CSS file**
+   ```bash
+   cp src/themes/minecraft-overworld.css src/themes/custom-theme.css
+   ```
 
-Progression requires **two independent validations**:
+2. **Edit theme variables**
+   ```css
+   :root {
+     --primary-color: #your-color;
+     --secondary-color: #your-color;
+     // ... other variables
+   }
+   ```
 
-### Password A (Internal)
-- Generated after passing a lesson test
-- Deterministic or randomized
-- Time-limited or single-use
-- Bound to lesson + student
+3. **Add theme selector option**
+   Add to `src/index.html`:
+   ```html
+   <option value="custom-theme">Custom Theme</option>
+   ```
 
-### Password B (External)
-- Provided by a **human authority** (teacher, school, parent, or classroom environment)
+### Adding New Courses
 
-**Prevents:**
-- Automation
-- Brute-force bypassing
-- Self-validation
+1. **Edit courses.js**
+   Add new course to the `loadCourses()` method following the existing structure.
 
-> ⚠️ **AI systems cannot generate or bypass passwords.**
+2. **Create course content**
+   Add lesson content, exercises, and media files to appropriate directories.
 
----
+## 🐛 Troubleshooting
 
-## 👥 Roles & Permissions
+### Common Issues
 
-### Platform Roles
-| Role            | Responsibility                     |
-|-----------------|-------------------------------------|
-| Admin           | Full system control, licensing      |
-| Tech Support    | Diagnostics, user issues            |
-| Sales           | School onboarding, licenses        |
+1. **Build fails**
+   - Ensure Node.js is installed and up to date
+   - Check that all dependencies are installed
+   - Verify file permissions
 
-### Education Roles
-| Role            | Responsibility                     |
-|-----------------|-------------------------------------|
-| School Admin    | Teachers, students, policies        |
-| Teacher (Internal) | Mentoring, special classes       |
-| Teacher (External) | Optional, on-demand mentoring   |
+2. **Theme not loading**
+   - Check CSS file paths in `src/index.html`
+   - Verify theme file exists in `src/themes/`
+   - Check browser console for errors
 
-### Learning Roles
-| Role            | Responsibility                     |
-|-----------------|-------------------------------------|
-| Student         | Learn, complete lessons             |
-| Parent          | Read-only progress access           |
+3. **i18n not working**
+   - Verify translation files exist in `i18n/`
+   - Check JSON syntax in translation files
+   - Ensure browser supports fetch API
 
----
+4. **GitHub Pages not updating**
+   - Verify `.nojekyll` file exists in `docs/`
+   - Check that GitHub Pages is configured for `/docs` folder
+   - Ensure build was successful
 
-## 📊 Dashboard System
+### Debug Mode
 
-### Shared Features
-- Role-based UI
-- Secure authentication
-- Notifications & activity logs
-- Progress visualization
+Enable debug mode by adding `?debug=true` to the URL to see additional console logs and error information.
 
-### Dashboard Capabilities
-| Role            | Dashboard Features                  |
-|-----------------|-------------------------------------|
-| Admin           | System health, users, revenue       |
-| Tech Support    | Tickets, diagnostics                 |
-| Sales           | Licenses, schools                   |
-| School          | Teachers, students, reports         |
-| Teacher         | Lessons, passwords, progress        |
-| Student         | Lessons, XP, achievements            |
-| Parent          | Progress summaries                  |
-| Platform Teacher| Content editor, analytics           |
+## 🤝 Contributing
 
----
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-## 🎮 Gamification System
+## 📄 License
 
-### Goals
-- Increase motivation
-- Encourage consistency
-- Reward mastery (not repetition)
-- Visualize learning progress
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-### Elements
-- XP (difficulty-scaled)
-- Badges & achievements
-- Island map progression
-- Fog-of-war unlocking
+## 🙏 Acknowledgments
 
-### Abuse Protection
-- No XP for failed attempts
-- Diminishing returns on retries
-- Password-gated progression
-- AI-assisted anomaly detection
+- Minecraft theme inspired by Mojang's Minecraft
+- Programming themes inspired by respective language communities
+- Gamification concepts from modern learning platforms
+- Icons and emojis from Unicode and open sources
+
+## 📞 Support
+
+For support and questions:
+- Create an issue in the GitHub repository
+- Check the troubleshooting section above
+- Review the code comments for additional documentation
 
 ---
 
-## 🤖 AI Tutor System
-
-The AI Tutor is a **support tool**, not a replacement for teachers.
-
-### Capabilities
-- Context-aware hints
-- Explanation rephrasing
-- Step-by-step guidance
-- Adaptive practice tasks
-- Answer evaluation & feedback
-
-### Restrictions
-- Cannot unlock lessons
-- Cannot generate passwords
-- Cannot override progression rules
-
----
-
-## 🗂️ Content Management
-- Markdown-based lessons
-- Video embedding
-- Quiz & test schemas
-- Versioning & rollback
-- Content review workflows
-
----
-
-## 📈 Progress Tracking & Analytics
-
-**Tracked Metrics:**
-- Lesson completion
-- Time spent
-- Test attempts
-- Password usage
-- XP progression
-- AI task success rate
-- Hint usage frequency
-
-**Reports:**
-- Per student, class, school
-- Exportable formats
-
----
-
-## 🔒 Security & Compliance
-- Role-based access control (RBAC)
-- Password hashing
-- Audit logs
-- Anti-cheat enforcement
-- Optional GDPR/COPPA compliance
-
----
-
-## 🧱 Architecture (Conceptual)
-
-```text
-Frontend:
-- Island-based UI
-- Role-specific dashboards
-
-Backend:
-- API-driven architecture
-- Rule-based progression engine
-
-AI Layer:
-- Prompt templates
-- Evaluation logic
-- Safety constraints
-
-Gamification Engine:
-- XP rules
-- Achievement triggers
+**Happy Learning! 🎓🚀**

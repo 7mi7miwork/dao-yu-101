@@ -1,0 +1,347 @@
+/* Rust Programming Theme */
+:root {
+    --primary-color: #CE4B28;
+    --secondary-color: #000000;
+    --accent-color: #F74C00;
+    --text-color: #2D2D2D;
+    --bg-color: #F8F8F8;
+    --card-bg: #FFFFFF;
+    --border-color: #E0E0E0;
+    --shadow: 0 2px 8px rgba(206, 75, 40, 0.15);
+    --rust-orange: #CE4B28;
+    --rust-dark: #000000;
+    --code-bg: #282828;
+    --code-text: #EBDBB2;
+    --keyword-color: #FB4934;
+    --string-color: #B8BB26;
+    --function-color: #8F3F71;
+    --comment-color: #928374;
+    --type-color: #D3869B;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-color) 0%, #FFF5F0 30%, var(--bg-color) 60%, #FFE8E0 100%);
+    background-attachment: fixed;
+    font-family: 'Segoe UI', 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.header {
+    background: linear-gradient(135deg, var(--rust-dark), #1A1A1A);
+    border-bottom: 3px solid var(--rust-orange);
+    box-shadow: 0 2px 10px rgba(206, 75, 40, 0.3);
+}
+
+.nav-brand h1 {
+    color: var(--rust-orange);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-brand h1::before {
+    content: '🦀';
+    font-size: 1.5rem;
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--rust-orange), var(--accent-color));
+    border: 3px solid var(--rust-dark);
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 15px,
+        rgba(0, 0, 0, 0.1) 15px,
+        rgba(0, 0, 0, 0.1) 30px
+    );
+}
+
+.hero h2,
+.hero p {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.course-card,
+.shop-item,
+.profile,
+.leaderboard {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    position: relative;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.course-card::before,
+.shop-item::before {
+    content: 'fn main() { println!("Hello World"); }';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.6rem;
+    color: var(--function-color);
+    background: var(--code-bg);
+    padding: 2px 4px;
+    border-radius: 3px;
+    opacity: 0.7;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--rust-orange), var(--accent-color));
+    border: 2px solid var(--rust-dark);
+    color: white;
+    font-weight: 600;
+}
+
+.stat-value {
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+    color: white;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--rust-dark), #1A1A1A);
+    border: 2px solid var(--rust-orange);
+    color: var(--rust-orange);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #1A1A1A, var(--rust-dark));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(206, 75, 40, 0.4);
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--rust-orange), var(--accent-color));
+    border-radius: 3px;
+}
+
+.footer {
+    background: linear-gradient(135deg, var(--code-bg), #1E1E1E);
+    border-top: 3px solid var(--rust-orange);
+    color: var(--code-text);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.language-selector,
+.theme-selector {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    border-radius: 4px;
+}
+
+.theme-toggle {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 4px;
+}
+
+.nav-menu a {
+    color: var(--rust-orange);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-weight: 500;
+}
+
+.nav-menu a:hover {
+    color: white;
+    text-shadow: 0 0 5px rgba(206, 75, 40, 0.5);
+}
+
+/* Rust code block styling */
+.code-block {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+    border-left: 4px solid var(--rust-orange);
+}
+
+.code-keyword {
+    color: var(--keyword-color);
+    font-weight: bold;
+}
+
+.code-string {
+    color: var(--string-color);
+}
+
+.code-function {
+    color: var(--function-color);
+}
+
+.code-comment {
+    color: var(--comment-color);
+    font-style: italic;
+}
+
+.code-type {
+    color: var(--type-color);
+}
+
+.code-macro {
+    color: #FE8019;
+}
+
+.code-lifetime {
+    color: #83A598;
+}
+
+/* Rust-specific animations */
+.rust-safety {
+    animation: safety-check 3s ease-in-out infinite;
+}
+
+@keyframes safety-check {
+    0%, 100% { 
+        color: var(--rust-orange);
+        text-shadow: 0 0 5px rgba(206, 75, 40, 0.5);
+    }
+    50% { 
+        color: #4CAF50;
+        text-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+    }
+}
+
+/* Cargo.toml styling */
+.cargo-block {
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.9rem;
+}
+
+.cargo-key {
+    color: var(--type-color);
+}
+
+.cargo-value {
+    color: var(--string-color);
+}
+
+/* Compiler error styling */
+.compiler-error {
+    background: linear-gradient(135deg, #3D2B2B, #2D1B1B);
+    border-left: 4px solid var(--keyword-color);
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    color: #FFA7A7;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.9rem;
+}
+
+.error-location {
+    color: var(--rust-orange);
+    font-weight: bold;
+}
+
+.error-message {
+    color: #FFCCCC;
+    margin-top: 0.5rem;
+}
+
+/* Safety badge */
+.safety-badge {
+    background: linear-gradient(135deg, #4CAF50, #45A049);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    animation: rust-safety 2s ease-in-out infinite;
+}
+
+/* Performance indicator */
+.performance-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #4CAF50;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    animation: performance-pulse 2s ease-in-out infinite;
+}
+
+@keyframes performance-pulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+    50% { 
+        transform: scale(1.2);
+        box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
+    }
+}
+
+/* Rust crab animation */
+.rust-crab {
+    display: inline-block;
+    font-size: 1.5rem;
+    animation: crab-walk 4s ease-in-out infinite;
+}
+
+@keyframes crab-walk {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(-5px) rotate(-5deg); }
+    75% { transform: translateX(5px) rotate(5deg); }
+}
+
+/* Zero-cost abstraction indicator */
+.zero-cost {
+    background: linear-gradient(135deg, var(--rust-orange), var(--accent-color));
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    position: relative;
+}
+
+.zero-cost::after {
+    content: '⚡';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: lightning-flash 1s ease-in-out infinite;
+}
+
+@keyframes lightning-flash {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
