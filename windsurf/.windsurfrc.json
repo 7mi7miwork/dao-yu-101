@@ -1,0 +1,126 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "Dao Yu 101 Learning Platform",
+    "type": "fullstack",
+    "framework": "nextjs-express"
+  },
+  "ide": {
+    "theme": "minecraft-dark",
+    "fontSize": 14,
+    "tabSize": 2,
+    "wordWrap": true,
+    "minimap": {
+      "enabled": true,
+      "scale": 1
+    }
+  },
+  "extensions": {
+    "required": [
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "bradlc.vscode-tailwindcss",
+      "ms-vscode.vscode-typescript-next",
+      "ms-vscode.vscode-json",
+      "formulahendry.auto-rename-tag",
+      "christian-kohler.path-intellisense",
+      "ms-vscode.vscode-git-graph"
+    ],
+    "recommended": [
+      "ms-vscode.vscode-live-server",
+      "ms-vscode.vscode-thunder-client",
+      "humao.rest-client",
+      "ms-vscode.vscode-docker",
+      "ms-vscode-remote.remote-containers"
+    ]
+  },
+  "debugging": {
+    "configurations": [
+      {
+        "name": "Debug Next.js",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/frontend/node_modules/.bin/next",
+        "args": ["dev"],
+        "cwd": "${workspaceFolder}/frontend",
+        "runtimeArgs": ["--inspect"],
+        "env": {
+          "NODE_OPTIONS": "--inspect"
+        }
+      },
+      {
+        "name": "Debug Backend",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/backend/src/index.ts",
+        "cwd": "${workspaceFolder}/backend",
+        "runtimeArgs": ["-r", "ts-node/register"],
+        "env": {
+          "NODE_ENV": "development"
+        }
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Start Full Stack",
+        "type": "shell",
+        "command": "npm",
+        "args": ["run", "dev"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": false,
+          "panel": "new"
+        }
+      },
+      {
+        "label": "Build Project",
+        "type": "shell",
+        "command": "npm",
+        "args": ["run", "build"],
+        "group": "build"
+      }
+    ]
+  },
+  "snippets": {
+    "react": {
+      "prefix": "minecraft-component",
+      "body": [
+        "import React from 'react';",
+        "import { cn } from '@/lib/utils';",
+        "",
+        "interface ${1:ComponentName}Props {",
+        "  className?: string;",
+        "  children?: React.ReactNode;",
+        "}",
+        "",
+        "export const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = ({",
+        "  className,",
+        "  children",
+        "}) => {",
+        "  return (",
+        "    <div className={cn('minecraft-block', className)}>",
+        "      {children}",
+        "    </div>",
+        "  );",
+        "};"
+      ],
+      "description": "Minecraft-styled React component"
+    }
+  },
+  "livePreview": {
+    "port": 3000,
+    "autoOpen": true,
+    "refreshOnSave": true
+  },
+  "git": {
+    "autoCommit": false,
+    "autoStage": false,
+    "showInlineCommits": true,
+    "enableGraph": true
+  }
+}

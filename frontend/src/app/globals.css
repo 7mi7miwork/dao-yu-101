@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Minecraft-inspired font import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Custom Minecraft pixel font */
+@font-face {
+  font-family: 'Minecraftia';
+  src: url('https://fonts.cdnfonts.com/s/28598/Minecraftia.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Base styles */
+:root {
+  --minecraft-grass: #7CB342;
+  --minecraft-dirt: #8D6E63;
+  --minecraft-stone: #757575;
+  --minecraft-wood: #6D4C41;
+  --minecraft-gold: #FFD700;
+  --minecraft-diamond: #00BCD4;
+  --minecraft-iron: #9E9E9E;
+  --minecraft-coal: #424242;
+  --minecraft-redstone: #F44336;
+  --minecraft-lapis: #3F51B5;
+  --minecraft-emerald: #4CAF50;
+  --minecraft-obsidian: #263238;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #87CEEB 0%, #98FB98 100%);
+  min-height: 100vh;
+}
+
+body {
+  color: #333;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill-opacity="0.03"><polygon fill="%23000" points="20 20 0 0 0 20"/><polygon fill="%23000" points="40 0 20 20 20 40"/><polygon fill="%23000" points="40 40 20 20 40 20"/></g></svg>');
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Minecraft UI Components */
+.minecraft-block {
+  @apply relative border-2 border-black shadow-[inset_0_0_10px_rgba(0,0,0,0.3)];
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.minecraft-grass {
+  @apply minecraft-block;
+  background: linear-gradient(180deg, #7CB342 0%, #558B2F 100%);
+}
+
+.minecraft-stone {
+  @apply minecraft-block;
+  background: linear-gradient(180deg, #757575 0%, #424242 100%);
+}
+
+.minecraft-dirt {
+  @apply minecraft-block;
+  background: linear-gradient(180deg, #8D6E63 0%, #5D4037 100%);
+}
+
+.minecraft-wood {
+  @apply minecraft-block;
+  background: linear-gradient(180deg, #6D4C41 0%, #3E2723 100%);
+}
+
+/* Pixel art effects */
+.pixel-border {
+  border: 2px solid currentColor;
+  box-shadow: 0 0 0 2px currentColor;
+}
+
+.pixel-text {
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+  image-rendering: pixelated;
+  font-family: 'Minecraftia', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border: 2px solid #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border: 2px solid #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Button styles */
+.minecraft-button {
+  @apply minecraft-block px-6 py-3 font-bold text-white transition-all duration-200 hover:scale-105 active:scale-95;
+  font-family: 'Minecraftia', monospace;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+}
+
+.minecraft-button-primary {
+  @apply bg-gradient-to-b from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700;
+}
+
+.minecraft-button-secondary {
+  @apply bg-gradient-to-b from-stone-500 to-stone-600 hover:from-stone-600 hover:to-stone-700;
+}
+
+.minecraft-button-danger {
+  @apply bg-gradient-to-b from-red-500 to-red-600 hover:from-red-600 hover:to-red-700;
+}
+
+/* Card styles */
+.minecraft-card {
+  @apply minecraft-block p-6 bg-white/90 backdrop-blur-sm;
+}
+
+/* Input styles */
+.minecraft-input {
+  @apply minecraft-block w-full px-4 py-2 bg-white/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-emerald-500;
+}
+
+/* Loading animation */
+.minecraft-loading {
+  @apply inline-block w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin;
+}
+
+/* Utility classes */
+.text-minecraft {
+  font-family: 'Minecraftia', monospace;
+}
+
+.bg-minecraft-world {
+  background: linear-gradient(180deg, #87CEEB 0%, #98FB98 50%, #8B7355 100%);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .minecraft-button {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  .minecraft-card {
+    @apply p-4;
+  }
+}
