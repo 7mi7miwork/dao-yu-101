@@ -1,0 +1,24 @@
+/workspace
+├── README.md
+├── css
+│   ├── dashboard.css
+│   ├── lessons.css
+│   └── styles.css
+├── dao-yu-101-system-design.md
+├── index.html
+├── js
+│   ├── app.js
+│   ├── dashboard.js
+│   ├── lessons.js
+│   └── navigation.js
+├── outputs
+│   ├── workspace_output_1769181300_9567.txt
+│   └── workspace_output_1769181303_4131.txt
+├── pages
+│   ├── archipelagos.html
+│   ├── dashboard.html
+│   ├── lesson-detail.html
+│   └── lessons.html
+└── todo.md
+
+5 directories, 17 files
