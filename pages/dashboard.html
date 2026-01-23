@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dao-Yu-101 | Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/lessons.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">🏝️</span>
+                <span class="logo-text">Dao-Yu-101</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="archipelagos.html" class="nav-link">Archipelagos</a></li>
+                <li><a href="lessons.html" class="nav-link">Lessons</a></li>
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button class="btn btn-primary" id="loginBtn">Login</button>
+                <button class="btn btn-outline" id="signupBtn" style="display: none;">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="dashboard">
+        <!-- Dashboard Header -->
+        <section class="dashboard-header">
+            <div class="container">
+                <h1 class="dashboard-title" id="dashboardTitle">Dashboard</h1>
+                <p class="dashboard-subtitle" id="dashboardSubtitle">Welcome back! Here's your learning progress.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Stats Cards -->
+            <div id="dashboardStats" class="dashboard-stats">
+                <!-- Stats will be rendered here -->
+            </div>
+
+            <!-- Dashboard Sections -->
+            <div class="dashboard-sections">
+                <!-- Progress Overview (Student) -->
+                <div class="dashboard-section" id="progressSection">
+                    <div class="dashboard-section-header">
+                        <div class="dashboard-section-title">
+                            <h3>Progress Overview</h3>
+                        </div>
+                    </div>
+                    <div id="progressOverview">
+                        <!-- Progress will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Recent Activity (Student) -->
+                <div class="dashboard-section" id="activitySection">
+                    <div class="dashboard-section-header">
+                        <div class="dashboard-section-title">
+                            <h3>Recent Activity</h3>
+                        </div>
+                    </div>
+                    <div id="recentActivity">
+                        <!-- Activity will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- XP & Badges (Student) -->
+                <div class="dashboard-section" id="xpSection">
+                    <div class="dashboard-section-header">
+                        <div class="dashboard-section-title">
+                            <h3>XP & Badges</h3>
+                        </div>
+                    </div>
+                    <div id="xpDisplay">
+                        <!-- XP will be rendered here -->
+                    </div>
+                    <div id="badgesDisplay" style="margin-top: 24px;">
+                        <!-- Badges will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Upcoming Lessons (Student) -->
+                <div class="dashboard-section" id="upcomingSection">
+                    <div class="dashboard-section-header">
+                        <div class="dashboard-section-title">
+                            <h3>Ready to Start</h3>
+                        </div>
+                    </div>
+                    <div id="upcomingLessons">
+                        <!-- Upcoming lessons will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Student List (Teacher) -->
+                <div class="dashboard-section" id="studentListSection" style="display: none;">
+                    <div class="dashboard-section-header">
+                        <div class="dashboard-section-title">
+                            <h3>Assigned Students</h3>
+                        </div>
+                    </div>
+                    <div id="studentList">
+                        <!-- Student list will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Pending Reviews (Teacher) -->
+                <div class="dashboard-section" id="reviewSection" style="display: none;">
+                    <div class="dashboard-section-header">
+                        <div class="dashboard-section-title">
+                            <h3>Pending Reviews</h3>
+                        </div>
+                    </div>
+                    <div id="reviewQueue">
+                        <!-- Review queue will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Child Progress (Parent) -->
+                <div class="dashboard-section" id="childProgressSection" style="display: none;">
+                    <div class="dashboard-section-header">
+                        <div class="dashboard-section-title">
+                            <h3>Children's Progress</h3>
+                        </div>
+                    </div>
+                    <div id="childProgress">
+                        <!-- Child progress will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- System Overview (Admin) -->
+                <div class="dashboard-section" id="systemSection" style="display: none;">
+                    <div class="dashboard-section-header">
+                        <div class="dashboard-section-title">
+                            <h3>System Overview</h3>
+                        </div>
+                    </div>
+                    <div id="systemOverview">
+                        <!-- System stats will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Audit Log (Admin) -->
+                <div class="dashboard-section" id="auditSection" style="display: none;">
+                    <div class="dashboard-section-header">
+                        <div class="dashboard-section-title">
+                            <h3>Audit Log</h3>
+                        </div>
+                    </div>
+                    <div id="auditLog">
+                        <!-- Audit log will be rendered here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🏝️</span>
+                    <span class="logo-text">Dao-Yu-101</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="archipelagos.html">Archipelagos</a>
+                    <a href="lessons.html">Lessons</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+                <div class="footer-social">
+                    <span>© 2024 Dao-Yu-101. Learning Integrity First.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/lessons.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderDashboard();
+        });
+    </script>
+</body>
+</html>

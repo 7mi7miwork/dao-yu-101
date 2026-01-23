@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dao-Yu-101 | Lessons</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/lessons.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">🏝️</span>
+                <span class="logo-text">Dao-Yu-101</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="archipelagos.html" class="nav-link">Archipelagos</a></li>
+                <li><a href="lessons.html" class="nav-link active">Lessons</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button class="btn btn-primary" id="loginBtn">Login</button>
+                <button class="btn btn-outline" id="signupBtn" style="display: none;">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="lessons-page">
+        <!-- Header -->
+        <section class="lessons-header">
+            <div class="container">
+                <h1>📚 Browse Lessons</h1>
+                <p>View all available lessons across all archipelagos</p>
+            </div>
+        </section>
+
+        <!-- Lessons Grid -->
+        <section class="container">
+            <div id="lessonsGrid" class="lessons-grid">
+                <!-- Lessons will be rendered here -->
+            </div>
+        </section>
+
+        <!-- Progress Summary -->
+        <section class="dashboard-section container">
+            <div class="dashboard-section-header">
+                <div class="dashboard-section-title">
+                    <h3>Your Progress</h3>
+                </div>
+            </div>
+            <div id="progressSummary">
+                <p class="text-muted">Login to view your progress</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🏝️</span>
+                    <span class="logo-text">Dao-Yu-101</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="archipelagos.html">Archipelagos</a>
+                    <a href="lessons.html">Lessons</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+                <div class="footer-social">
+                    <span>© 2024 Dao-Yu-101. Learning Integrity First.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/lessons.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderAllLessons();
+            renderProgressSummary();
+        });
+
+        function renderAllLessons() {
+            const lessonsGrid = document.getElementById('lessonsGrid');
+            if (!lessonsGrid) return;
+
+            let html = '<div class="archipelagos-grid">';
+
+            // Group lessons by archipelago
+            const archipelagos = AppState.data.archipelagos;
+            
+            archipelagos.forEach(archipelago => {
+                const islands = getIslandsByArchipelago(archipelago.id);
+                const archipelagoLessons = [];
+                
+                islands.forEach(island => {
+                    const islandLessons = getLessonsByIsland(island.id);
+                    archipelagoLessons.push(...islandLessons.map(l => ({
+                        ...l,
+                        islandName: island.name
+                    })));
+                });
+
+                html += `
+                    <div class="archipelago-card">
+                        <div class="archipelago-header ${archipelago.name.toLowerCase().replace(' ', '')}">
+                            <div class="archipelago-icon">${archipelago.icon}</div>
+                            <div class="archipelago-name">${archipelago.name}</div>
+                            <div class="archipelago-description">${archipelagoLessons.length} Lessons Available</div>
+                        </div>
+                        <div class="archipelago-body">
+                            <div class="island-list">
+                `;
+
+                archipelagoLessons.slice(0, 8).forEach(lesson => {
+                    const statusClass = lesson.status === 'completed' ? 'completed' : 
+                                      lesson.status === 'unlocked' ? 'unlocked' : 'locked';
+                    const canAccess = lesson.status !== 'locked' || AppState.isAuthenticated;
+                    
+                    html += `
+                        <div class="lesson-item ${lesson.status}">
+                            <div class="lesson-item-content">
+                                <div class="lesson-number">${lesson.sort_order}</div>
+                                <div class="lesson-item-details">
+                                    <div class="lesson-item-name">${lesson.name}</div>
+                                    <div class="lesson-item-island">${lesson.islandName}</div>
+                                </div>
+                            </div>
+                            <div class="lesson-item-status">
+                                <span class="lesson-status-badge ${statusClass}">${lesson.status}</span>
+                            </div>
+                            ${canAccess ? `
+                                <button class="btn btn-small btn-primary" 
+                                        onclick="window.location.href='lesson-detail.html?id=${lesson.id}'"
+                                        ${lesson.status === 'locked' ? 'disabled' : ''}>
+                                    ${lesson.status === 'completed' ? 'Review' : lesson.status === 'unlocked' ? 'Start' : 'Locked'}
+                                </button>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+
+                html += `
+                            </div>
+                            <button class="btn btn-primary" onclick="viewArchipelago('${archipelago.id}')">
+                                View All ${archipelago.name} Lessons
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            lessonsGrid.innerHTML = html;
+        }
+
+        function renderProgressSummary() {
+            const progressSummary = document.getElementById('progressSummary');
+            if (!progressSummary) return;
+
+            if (!AppState.isAuthenticated) {
+                progressSummary.innerHTML = '<p class="text-muted">Login to view your progress and access lessons</p>';
+                return;
+            }
+
+            const totalLessons = AppState.data.lessons.length;
+            const completedLessons = AppState.data.lessons.filter(l => l.status === 'completed').length;
+            const unlockedLessons = AppState.data.lessons.filter(l => l.status === 'unlocked').length;
+            const lockedLessons = AppState.data.lessons.filter(l => l.status === 'locked').length;
+            const progress = ((completedLessons / totalLessons) * 100).toFixed(0);
+
+            let html = `
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Total Progress</span>
+                            <span class="stat-card-icon">📊</span>
+                        </div>
+                        <div class="stat-card-value">${progress}%</div>
+                        <div class="stat-card-change">${completedLessons}/${totalLessons} lessons completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Available</span>
+                            <span class="stat-card-icon">🔓</span>
+                        </div>
+                        <div class="stat-card-value">${unlockedLessons}</div>
+                        <div class="stat-card-change">Ready to start</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Locked</span>
+                            <span class="stat-card-icon">🔒</span>
+                        </div>
+                        <div class="stat-card-value">${lockedLessons}</div>
+                        <div class="stat-card-change">Complete prerequisites</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Current Streak</span>
+                            <span class="stat-card-icon">🔥</span>
+                        </div>
+                        <div class="stat-card-value">3</div>
+                        <div class="stat-card-change">Consecutive days</div>
+                    </div>
+                </div>
+            `;
+
+            progressSummary.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

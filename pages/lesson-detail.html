@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dao-Yu-101 | Lesson Detail</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/lessons.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">🏝️</span>
+                <span class="logo-text">Dao-Yu-101</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="archipelagos.html" class="nav-link">Archipelagos</a></li>
+                <li><a href="lessons.html" class="nav-link">Lessons</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button class="btn btn-primary" id="loginBtn">Login</button>
+                <button class="btn btn-outline" id="signupBtn" style="display: none;">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="lessons-page">
+        <div class="container">
+            <!-- Breadcrumbs -->
+            <div id="breadcrumbs">
+                <!-- Breadcrumbs will be rendered here -->
+            </div>
+
+            <!-- Lesson Header -->
+            <div class="lesson-header">
+                <div class="lesson-header-top">
+                    <div>
+                        <h1 class="lesson-title" id="lessonTitle">Loading...</h1>
+                        <div class="lesson-metadata">
+                            <span class="lesson-metadata-item">
+                                <span>📚</span>
+                                <span id="lessonIsland">Island: Loading...</span>
+                            </span>
+                            <span class="lesson-metadata-item">
+                                <span>📝</span>
+                                <span id="lessonType">Type: Loading...</span>
+                            </span>
+                            <span class="lesson-metadata-item">
+                                <span>🔢</span>
+                                <span id="lessonNumber">Lesson: Loading...</span>
+                            </span>
+                        </div>
+                    </div>
+                    <span class="lesson-status-badge" id="lessonStatus">Loading...</span>
+                </div>
+                <p class="lesson-description" id="lessonDescription">Loading lesson description...</p>
+            </div>
+
+            <!-- Lesson Content -->
+            <div class="lesson-content">
+                <div class="lesson-content-title">📖 Lesson Content</div>
+                <div id="lessonContent">
+                    <!-- Lesson content will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Submission Area -->
+            <div class="submission-area">
+                <div class="submission-area-title">✍️ Complete the Lesson</div>
+                <p class="text-muted">Answer all questions below and submit your work for validation.</p>
+                
+                <div id="quizContainer" class="quiz-container">
+                    <!-- Quiz will be generated here -->
+                </div>
+
+                <div class="lesson-actions">
+                    <div class="attempt-info">
+                        <span>Attempt:</span>
+                        <span class="attempt-count" id="attemptCount">0</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-outline" onclick="window.location.href='lessons.html'">
+                            Back to Lessons
+                        </button>
+                        <button class="btn btn-primary" id="submitLessonBtn" onclick="submitLesson()">
+                            Submit Lesson
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Validation Results -->
+            <div id="validationResults">
+                <!-- Results will be shown here after submission -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🏝️</span>
+                    <span class="logo-text">Dao-Yu-101</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="archipelagos.html">Archipelagos</a>
+                    <a href="lessons.html">Lessons</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+                <div class="footer-social">
+                    <span>© 2024 Dao-Yu-101. Learning Integrity First.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/lessons.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get lesson ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const lessonId = urlParams.get('id');
+            
+            if (lessonId) {
+                renderLessonDetail(lessonId);
+                generateQuiz(LessonState.currentLesson);
+                initializeQuizListeners();
+                updateAttemptCount();
+            } else {
+                showNotification('No lesson specified', 'error');
+                window.location.href = 'lessons.html';
+            }
+        });
+
+        function updateAttemptCount() {
+            const attemptCountEl = document.getElementById('attemptCount');
+            if (attemptCountEl) {
+                attemptCountEl.textContent = LessonState.attemptCount;
+            }
+        }
+
+        function updateLessonMetadata(lesson) {
+            const island = getIslandById(lesson.island_id);
+            const archipelago = getArchipelagoById(island.archipelago_id);
+            
+            const lessonIslandEl = document.getElementById('lessonIsland');
+            const lessonTypeEl = document.getElementById('lessonType');
+            const lessonNumberEl = document.getElementById('lessonNumber');
+            
+            if (lessonIslandEl) lessonIslandEl.textContent = `Island: ${island.name}`;
+            if (lessonTypeEl) lessonTypeEl.textContent = `Type: ${lesson.validation_type === 'automated' ? 'Automated' : lesson.validation_type === 'human_reviewed' ? 'Human Review' : 'Both'}`;
+            if (lessonNumberEl) lessonNumberEl.textContent = `Lesson ${lesson.sort_order}`;
+        }
+
+        // Override renderLessonDetail to update metadata
+        const originalRenderLessonDetail = renderLessonDetail;
+        window.renderLessonDetail = function(lessonId) {
+            originalRenderLessonDetail(lessonId);
+            if (LessonState.currentLesson) {
+                updateLessonMetadata(LessonState.currentLesson);
+            }
+        };
+    </script>
+</body>
+</html>
