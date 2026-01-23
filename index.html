@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dao-Yu-101 | Structured Learning Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/lessons.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">🏝️</span>
+                <span class="logo-text">Dao-Yu-101</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="pages/archipelagos.html" class="nav-link">Archipelagos</a></li>
+                <li><a href="pages/lessons.html" class="nav-link">Lessons</a></li>
+                <li><a href="pages/dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button class="btn btn-primary" id="loginBtn">Login</button>
+                <button class="btn btn-outline" id="signupBtn" style="display: none;">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Learn Through Structured Progression</h1>
+                <p class="hero-subtitle">Master every concept before moving forward. No shortcuts, real learning.</p>
+                <div class="hero-buttons">
+                    <a href="pages/archipelagos.html" class="btn btn-large btn-primary">Start Learning</a>
+                    <a href="pages/lessons.html" class="btn btn-large btn-outline">View Lessons</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="island-preview">
+                    <div class="island mathematics">
+                        <span class="island-icon">📐</span>
+                        <span class="island-name">Mathematics</span>
+                    </div>
+                    <div class="island science">
+                        <span class="island-icon">🔬</span>
+                        <span class="island-name">Science</span>
+                    </div>
+                    <div class="island programming">
+                        <span class="island-icon">💻</span>
+                        <span class="island-name">Programming</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Dao-Yu-101?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Strict Progression</h3>
+                        <p>Each lesson must be validated before unlocking the next. No skipping ahead.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✓</div>
+                        <h3>Mandatory Validation</h3>
+                        <p>Every lesson requires validation through automated tests or human review.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Learning Integrity</h3>
+                        <p>Progress is earned through demonstrated mastery, not gamification.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Peer Review</h3>
+                        <p>Anonymized peer reviews ensure quality and provide additional perspectives.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Detailed Tracking</h3>
+                        <p>Comprehensive progress tracking with attempt history and feedback.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3>Purposeful Gamification</h3>
+                        <p>XP and badges celebrate achievement without compromising learning standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Choose an Archipelago</h3>
+                            <p>Select from Mathematics, Science, Programming, and more subject domains.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Complete Lessons Sequentially</h3>
+                            <p>Work through 15 lessons per island. Each builds on the previous one.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Validate Your Understanding</h3>
+                            <p>Pass validation tests to unlock the next lesson. No exceptions.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Master the Island</h3>
+                            <p>Complete all 15 lessons to earn your island completion badge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Lessons per Island</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Archipelagos Available</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Validation Required</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Learning Potential</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🏝️</span>
+                    <span class="logo-text">Dao-Yu-101</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="pages/archipelagos.html">Archipelagos</a>
+                    <a href="pages/lessons.html">Lessons</a>
+                    <a href="pages/dashboard.html">Dashboard</a>
+                </div>
+                <div class="footer-social">
+                    <span>© 2024 Dao-Yu-101. Learning Integrity First.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/lessons.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
